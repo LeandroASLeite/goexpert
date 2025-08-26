@@ -1,0 +1,37 @@
+package entity
+
+import (
+	"testing"
+	"time"
+
+	"github.com/stretchr/testify/assert"
+)
+
+func TestProduct_Validate(t *testing.T) {
+	p, err := NewProduct("Product 1", 10)
+	assert.Nil(t, err)
+	assert.NotNil(t, p)
+	assert.NotEmpty(t, p.ID)
+	assert.Equal(t, "Product 1", p.Name)
+	assert.Equal(t, 10.0, p.Price)
+	assert.WithinDuration(t, time.Now(), p.CreatedAt, time.Second)
+
+}
+
+func TestProductWhenNameIsRequired(t *testing.T) {
+	p, err := NewProduct("", 10)
+	assert.Nil(t, p)
+	assert.Equal(t, ErrNameIsRequired, err)
+}
+
+func TestProductWhenPriceIsInvalid(t *testing.T) {
+	p, err := NewProduct("Product 1", -10)
+	assert.Nil(t, p)
+	assert.Equal(t, ErrInvalidPrice, err)
+}
+
+func TestProductWhenPriceIsRequired(t *testing.T) {
+	p, err := NewProduct("Product 1", 0)
+	assert.Nil(t, p)
+	assert.Equal(t, ErrInvalidPrice, err)
+}
