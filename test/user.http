@@ -1,0 +1,19 @@
+POST  http://localhost:8000/users HTTP/1.1
+Content-Type: application/json
+
+{
+   "name":"fulanodetal",
+	"email":"email@12123123123123",
+	"password":"1232323213213"
+}
+
+
+###
+
+POST  http://localhost:8000/users/generate_token HTTP/1.1
+Content-Type: application/json
+
+{
+	"email":"email@12123123123123",
+	"password":"1232323213213"
+}

@@ -2,7 +2,7 @@ package database
 
 import "github.com/LeandroASLeite/goexpert/APIS/internal/entity"
 
-type UserDB interface {
+type UserInterface interface {
 	Create(user *entity.User) error
 	FindByEmail(email string) (*entity.User, error)
 }
