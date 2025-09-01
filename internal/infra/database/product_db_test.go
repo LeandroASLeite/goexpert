@@ -31,6 +31,7 @@ func TestFinalAllProducts(t *testing.T) {
 		t.Error(err)
 	}
 	db.AutoMigrate(&entity.Product{})
+
 	for i := 1; i < 24; i++ {
 		product, err := entity.NewProduct(fmt.Sprintf("Product %d", i), rand.Float64()*100)
 		assert.NoError(t, err)
@@ -42,18 +43,17 @@ func TestFinalAllProducts(t *testing.T) {
 	assert.Len(t, products, 10)
 	assert.Equal(t, "Product 1", products[0].Name)
 	assert.Equal(t, "Product 10", products[9].Name)
-
 	products, err = productDB.FindAll(2, 10, "asc")
 	assert.NoError(t, err)
 	assert.Len(t, products, 10)
 	assert.Equal(t, "Product 11", products[0].Name)
 	assert.Equal(t, "Product 20", products[9].Name)
-
 	products, err = productDB.FindAll(3, 10, "asc")
 	assert.NoError(t, err)
 	assert.Len(t, products, 3)
 	assert.Equal(t, "Product 21", products[0].Name)
 	assert.Equal(t, "Product 23", products[2].Name)
+
 }
 
 func TestFindProductByID(t *testing.T) {

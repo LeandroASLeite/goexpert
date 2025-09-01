@@ -20,7 +20,10 @@ func (p *Product) Create(product *entity.Product) error {
 func (p *Product) FindByID(id string) (*entity.Product, error) {
 	var product entity.Product
 	err := p.DB.First(&product, "id = ?", id).Error
-	return &product, err
+	if err != nil {
+		return nil, err
+	}
+	return &product, nil
 }
 
 func (p *Product) Update(product *entity.Product) error {
@@ -46,7 +49,7 @@ func (p *Product) FindAll(page, limit int, sort string) ([]*entity.Product, erro
 		sort = "asc"
 	}
 	if page != 0 && limit != 0 {
-		err = p.DB.Limit(limit).Offset((page - 1) * limit).Order("created_at" + sort).Find(&products).Error
+		err = p.DB.Limit(limit).Offset((page - 1) * limit).Order("created_at " + sort).Find(&products).Error
 
 	} else {
 		err = p.DB.Order("created_at " + sort).Find(&products).Error

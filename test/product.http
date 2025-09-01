@@ -8,11 +8,10 @@ Content-Type: application/json
 
 ###
 GET http://localhost:8000/products HTTP/1.1
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NTYzMDYyMzMsInVzZXJfaWQiOiI2ZjRmODRiMy0yODBkLTRiOTUtODhjMC0zMGFjMDkzYjA1NGEifQ.-d5y3NHm9fH_ZLU_J2HWBJKIo3xvC02irzrKdEgIjvM 
-
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NTY3NDczNDYsInVzZXJfaWQiOiJjMzQ4NjA0OS00Mzg3LTQ1YmEtYWI1Zi05YjRiZGEwOWYyNjkifQ.DDUVcL8K1ExVAZIE-YUGLVdEG6D67YET-kjFcKn-3eU
 ###
-
-GET http://localhost:8000/products/d056bf2b-53ed-4876-9de4-77a82a365f03 HTTP/1.1
+GET http://localhost:8000/products/e37c273f-e51e-402b-a06b-603d43d3c0f9 HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NTY3NDczNDYsInVzZXJfaWQiOiJjMzQ4NjA0OS00Mzg3LTQ1YmEtYWI1Zi05YjRiZGEwOWYyNjkifQ.DDUVcL8K1ExVAZIE-YUGLVdEG6D67YET-kjFcKn-3eU
 Content-Type: application/json
 
 ###
